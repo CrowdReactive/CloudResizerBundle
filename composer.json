@@ -1,5 +1,17 @@
 {
     "name": "crowdreactive/image-filter-bundle",
+    "authors": [
+        {
+            "name": "Roman Schejbal",
+            "role": "Developer"
+        },
+        {
+            "name": "Ross Masters",
+            "role": "Developer",
+            "homepage": "http://rossmasters.com/"
+        }
+    ],
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "CrowdReactive\\ImageFilterBundle\\": ""
