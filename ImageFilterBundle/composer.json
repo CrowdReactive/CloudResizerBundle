@@ -1,0 +1,11 @@
+{
+    "name": "crowdreactive/image-filter-bundle",
+    "autoload": {
+        "psr-4": {
+            "CrowdReactive\\ImageFilterBundle\\": ""
+        }
+    },
+    "require-dev": {
+        "twig/twig": "*"
+    }
+}
