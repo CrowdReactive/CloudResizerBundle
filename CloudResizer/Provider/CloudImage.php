@@ -1,15 +1,15 @@
 <?php
 
-namespace CrowdReactive\ImageFilterBundle\ImageFilter\Provider;
+namespace CrowdReactive\CloudResizerBundle\CloudResizer\Provider;
 
-use CrowdReactive\ImageFilterBundle\ImageFilter\Filter\FilterInterface;
+use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
 
 class CloudImage implements ProviderInterface
 {
     protected $token;
 
     protected $filterNames = [
-        'CrowdReactive\\ImageFilterBundle\\ImageFilter\\Filter\\RelativeHeight' => 'height',
+        'CrowdReactive\\CloudResizerBundle\\CloudResizer\\Filter\\RelativeHeight' => 'height',
     ];
 
     public function __construct($token)

@@ -14,7 +14,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "CrowdReactive\\ImageFilterBundle\\": ""
+            "CrowdReactive\\CloudResizerBundle\\": ""
         }
     },
     "require-dev": {

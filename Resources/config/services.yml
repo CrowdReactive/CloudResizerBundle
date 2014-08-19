@@ -1,14 +1,14 @@
 parameters:
-    crowdreactive_image_filter.service.class: CrowdReactive\ImageFilterBundle\Services\ImageFilter
-    crowdreactive_image_filter.twig_extension.class: CrowdReactive\ImageFilterBundle\Twig\FilterExtension
+    crowdreactive_cloudresizer.service.class: CrowdReactive\CloudResizerBundle\Services\CloudResizer
+    crowdreactive_cloudresizer.twig_extension.class: CrowdReactive\CloudResizerBundle\Twig\CloudResizerExtension
 
 services:
-    crowdreactive_image_filter.service:
-        class: %crowdreactive_image_filter.service.class%
+    crowdreactive_cloudresizer.service:
+        class: %crowdreactive_cloudresizer.service.class%
         arguments: []
 
-    crowdreactive_image_filter.twig_extension:
-        class: %crowdreactive_image_filter.twig_extension.class%
-        arguments: [ @crowdreactive_image_filter.service ]
+    crowdreactive_cloudresizer.twig_extension:
+        class: %crowdreactive_cloudresizer.twig_extension.class%
+        arguments: [ @crowdreactive_cloudresizer.service ]
         tags:
             - { name: twig.extension }

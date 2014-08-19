@@ -1,9 +1,10 @@
 <?php
 
-namespace CrowdReactive\ImageFilterBundle\Tests\ImageFilter\Provider;
+namespace CrowdReactive\CloudResizerBundle\Tests\CloudResizer\Provider;
 
-use CrowdReactive\ImageFilterBundle\ImageFilter\Filter\RelativeHeight;
-use CrowdReactive\ImageFilterBundle\ImageFilter\Provider\CloudImage;
+
+use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\RelativeHeight;
+use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\CloudImage;
 
 class CloudImageProviderTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace CrowdReactive\ImageFilterBundle\ImageFilter\Filter;
+namespace CrowdReactive\CloudResizerBundle\CloudResizer\Filter;
 
-use CrowdReactive\ImageFilterBundle\ImageFilter\Provider\ProviderInterface;
+use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
 
 interface FilterInterface
 {

@@ -1,8 +1,7 @@
 <?php
 
-namespace CrowdReactive\ImageFilterBundle\DependencyInjection;
+namespace CrowdReactive\CloudResizerBundle\DependencyInjection;
 
-use CrowdReactive\ImageFilterBundle\Tests\ImageFilter\Filter\RelativeHeightFilterTest;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -19,19 +18,21 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('crowdreactive_image_filter');
+        $rootNode = $treeBuilder->root('crowdreactive_cloudresizer');
 
         $rootNode->children()
             // array of services
             ->arrayNode('filters')
                 ->useAttributeAsKey('name')
-                ->children()
-                    ->scalarNode('name')->cannotBeEmpty()->end()
-                    // a fqcn
-                    ->scalarNode('type')->cannotBeEmpty()->end()
-                    // a service name
-                    ->scalarNode('provider')->cannotBeEmpty()->end()
-                    ->arrayNode('parameters')->end()
+                ->prototype('array')
+                    ->children()
+                        ->scalarNode('name')->cannotBeEmpty()->end()
+                        // a fqcn
+                        ->scalarNode('type')->cannotBeEmpty()->end()
+                        // a service name
+                        ->scalarNode('provider')->cannotBeEmpty()->end()
+                        ->arrayNode('parameters')->end()
+                    ->end()
                 ->end()
             ->end();
 

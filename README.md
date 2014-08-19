@@ -1,2 +1,4 @@
-ImageFilterBundle
-=================
+CloudResizerBundle
+==================
+
+@todo

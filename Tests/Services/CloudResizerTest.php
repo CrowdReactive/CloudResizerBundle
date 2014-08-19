@@ -6,10 +6,10 @@
  * Time: 17:09
  */
 
-namespace CrowdReactive\ImageFilterBundle\Tests\Services;
+namespace CrowdReactive\CloudResizerBundle\Tests\Services;
 
 
-class ImageFilterTest {
+class CloudResizerTest {
 
     public function test() {
 

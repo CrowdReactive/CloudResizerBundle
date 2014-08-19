@@ -6,13 +6,12 @@
  * Time: 17:06
  */
 
-namespace CrowdReactive\ImageFilterBundle\Services;
+namespace CrowdReactive\CloudResizerBundle\Services;
 
+use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
+use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
 
-use CrowdReactive\ImageFilterBundle\ImageFilter\Filter\FilterInterface;
-use CrowdReactive\ImageFilterBundle\ImageFilter\Provider\ProviderInterface;
-
-class ImageFilter {
+class CloudResizer {
 
     protected $providers;
     protected $filters;

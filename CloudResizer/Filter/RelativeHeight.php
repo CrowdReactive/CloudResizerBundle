@@ -1,6 +1,6 @@
 <?php
 
-namespace CrowdReactive\ImageFilterBundle\ImageFilter\Filter;
+namespace CrowdReactive\CloudResizerBundle\CloudResizer\Filter;
 
 class RelativeHeight extends AbstractFilter
 {

@@ -1,3 +1,0 @@
-crowd_reactive_image_filter_homepage:
-    path:  /hello/{name}
-    defaults: { _controller: CrowdReactiveImageFilterBundle:Default:index }
