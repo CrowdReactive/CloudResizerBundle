@@ -1,0 +1,6 @@
+filters:
+  avatar:
+    type: CrowdReactive\ImageFilterBundle\ImageFilter\Filter\RelativeHeight
+    provider: @crowdreactive_image_filter.provider.cloudimage
+    parameters:
+      height: 50

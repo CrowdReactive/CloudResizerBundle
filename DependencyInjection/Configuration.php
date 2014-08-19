@@ -2,6 +2,7 @@
 
 namespace CrowdReactive\ImageFilterBundle\DependencyInjection;
 
+use CrowdReactive\ImageFilterBundle\Tests\ImageFilter\Filter\RelativeHeightFilterTest;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -18,11 +19,21 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('crowd_reactive_image_filter');
+        $rootNode = $treeBuilder->root('crowdreactive_image_filter');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode->children()
+            // array of services
+            ->arrayNode('filters')
+                ->useAttributeAsKey('name')
+                ->children()
+                    ->scalarNode('name')->cannotBeEmpty()->end()
+                    // a fqcn
+                    ->scalarNode('type')->cannotBeEmpty()->end()
+                    // a service name
+                    ->scalarNode('provider')->cannotBeEmpty()->end()
+                    ->arrayNode('parameters')->end()
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }
