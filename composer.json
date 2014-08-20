@@ -1,5 +1,6 @@
 {
     "name": "crowdreactive/image-filter-bundle",
+    "description": "A bundle for resizing and manipulating images using web services",
     "authors": [
         {
             "name": "Roman Schejbal",
