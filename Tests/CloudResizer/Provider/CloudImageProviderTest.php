@@ -2,8 +2,6 @@
 
 namespace CrowdReactive\CloudResizerBundle\Tests\CloudResizer\Provider;
 
-
-use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\RelativeHeight;
 use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\CloudImage;
 
 class CloudImageProviderTest extends \PHPUnit_Framework_TestCase
@@ -23,7 +21,7 @@ class CloudImageProviderTest extends \PHPUnit_Framework_TestCase
 
     public function testBuild()
     {
-        $url = $this->provider->build(new RelativeHeight(['height' => 200]), 'http://google.com/logo.png');
-        $this->assertEquals('//123abc.cloudimage.io/s/height/height=200/http://google.com/logo.png', $url);
+        $url = $this->provider->build(['height' => 200], 'http://google.com/logo.png');
+        $this->assertEquals('//123abc.cloudimage.io/s/height/200/http://google.com/logo.png', $url);
     }
 }

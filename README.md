@@ -17,18 +17,17 @@ Provides a wrapper around external image manipulation services. Currently suppor
 ```php
 use CrowdReactive\CloudResizerBundle;
 
-$cloudResizer = new CloudResizerBundle\Services\CloudResizer;
+$resizer = new CloudResizerBundle\Services\CloudResizer;
 
 // Setup providers
 $cloudImage = new CloudResizerBundle\Provider\CloudImage(CLOUDIMAGE_TOKEN);
 
 // Create filters for different purposes
-$backgroundThumbnail = new CloudResizerBundle\Filter\RelativeHeight(['height' => 200]);
-$backgroundThumbnail->setProvider($cloudImage);
-$cloudResizer->setFilter('background_thumb', $backgroundThumbnail);
+$backgroundThumbnail = new CloudResizerBundle\CloudResizer\Filter($cloudImage, ['height' => 200]);
+$resizer->setFilter('background_thumb', $backgroundThumbnail);
 
-$cloudResizer->build('https://s3.amazonaws.com/.../uploads/background-123.png', 'background_thumb');
-$cloudResizer->build('https://s3.amazonaws.com/.../uploads/background-123.png', 'background_thumb', ['height' => 400]);
+$resizer->build('https://s3.amazonaws.com/.../uploads/background-123.png', 'background_thumb');
+$resizer->build('https://s3.amazonaws.com/.../uploads/background-123.png', 'background_thumb', ['height' => 400]);
 ```
 
 ### Symfony integration
