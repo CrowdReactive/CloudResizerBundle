@@ -13,37 +13,25 @@ use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
 
 class CloudResizer {
 
-    protected $providers;
+    /** @var FilterInterface[] */
     protected $filters;
 
     public function __construct() {
-        $this->providers = [];
         $this->filters = [];
     }
 
-    public function setProvider($name, ProviderInterface $provider)
-    {
-        $this->providers[$name] = $provider;
-    }
-
-    public function getProvider($name)
-    {
-        return $this->providers[$name];
-    }
-
-    public function setFilter($name, FilterInterface $filter)
-    {
+    public function setFilter($name, FilterInterface $filter) {
         $this->filters[$name] = $filter;
     }
 
-    public function getFilter($name)
-    {
+    public function getFilter($name) {
         return $this->filters[$name];
     }
 
-
-    public function build($url, $name, array $options) {
-
+    public function build($url, $name, array $options = []) {
+        $filter = $this->filters[$name];
+        $filter->setParameters($options);
+        $filter->getProvider()->build($filter, $url);
     }
 
 } 

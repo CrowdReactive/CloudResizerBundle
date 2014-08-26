@@ -10,6 +10,7 @@ interface FilterInterface
     public function getParameters();
 
     public function setProvider(ProviderInterface $provider);
+    /** @return ProviderInterface */
     public function getProvider();
 
     public function getName();

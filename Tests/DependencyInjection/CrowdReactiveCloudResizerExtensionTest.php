@@ -10,43 +10,34 @@ namespace CrowdReactive\CloudResizerBundle\Tests\DependencyInjection;
 
 
 use CrowdReactive\CloudResizerBundle\DependencyInjection\CrowdReactiveCloudResizerExtension;
+use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Loader;
 
 class CrowdReactiveCloudResizerExtensionTest extends \PHPUnit_Framework_TestCase {
 
+    /** @var CrowdReactiveCloudResizerExtension */
     private $extension;
 
-    private $root;
+    /** @var ContainerBuilder */
+    private $container;
 
-    public function setUp()
-    {
+    public function setUp() {
         parent::setUp();
 
-        $this->extension = $this->getExtension();
-        $this->root      = "my_bundle";
+        $this->extension = new CrowdReactiveCloudResizerExtension();
+
+        $this->container = new ContainerBuilder();
+        $this->container->registerExtension($this->extension);
     }
 
-    public function testGetConfigWithDefaultValues()
-    {
-        $this->extension->load(array(), $container = $this->getContainer());
+    public function loadConfiguration(ContainerBuilder $container) {
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../../Resources/config'));
+        $loader->load('config.yml');
     }
 
-    public function testGetConfigWithOverrideValues()
-    {
-        $config = array();
-
-        $this->extension->load(array($config), $container = $this->getContainer());
-    }
-
-    protected function getExtension()
-    {
-        return new CrowdReactiveCloudResizerExtension();
-    }
-
-    private function getContainer()
-    {
-        $container = new ContainerBuilder();
-
-        return $container;
+    public function testGetConfigWithDefaultValues() {
+        $this->loadConfiguration($this->container);
+        $this->container->compile();
     }
 } 

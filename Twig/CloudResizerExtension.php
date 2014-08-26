@@ -37,7 +37,7 @@ class CloudResizerExtension extends \Twig_Extension {
      * @param array $options
      * @return mixed
      */
-    public function resize($url, $name, $options = array()) {
+    public function resize($url, $name, array $options = []) {
         return $this->cloudResizerService->build($url, $name, $options);
     }
 

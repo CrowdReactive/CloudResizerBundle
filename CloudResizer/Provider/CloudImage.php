@@ -9,7 +9,7 @@ class CloudImage implements ProviderInterface
     protected $token;
 
     protected $filterNames = [
-        'CrowdReactive\\CloudResizerBundle\\CloudResizer\\Filter\\RelativeHeight' => 'height',
+        'CrowdReactive\CloudResizerBundle\CloudResizer\Filter\RelativeHeight' => 'height',
     ];
 
     public function __construct($token)

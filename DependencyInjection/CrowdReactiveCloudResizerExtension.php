@@ -5,7 +5,6 @@ namespace CrowdReactive\CloudResizerBundle\DependencyInjection;
 use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
 use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
 use CrowdReactive\CloudResizerBundle\Services\CloudResizer;
-use CrowdReactive\CloudResizerBundle\DependencyInjection\Configuration;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
@@ -31,7 +30,7 @@ class CrowdReactiveCloudResizerExtension extends Extension
         /** @var CloudResizer $cloudResizer */
         $cloudResizer = $container->get('crowdreactive_cloudresizer.service');
 
-        foreach ($config['filters'] as $info) {
+        foreach ($config['filters'] as $key => $info) {
             /** @todo Lazy load */
             if (!class_exists($info['type']) || !is_subclass_of($info['type'], 'CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface')) {
                 throw new \Exception('Filter must implement FilterInterface');
@@ -41,11 +40,17 @@ class CrowdReactiveCloudResizerExtension extends Extension
             $filter = new $info['type'];
             $filter->setParameters($info['parameters']);
 
+            if ($info['provider'][0] == '@')
+                $info['provider'] = substr($info['provider'], 1);
             /** @var ProviderInterface $provider */
             $provider = $container->get($info['provider']);
             $filter->setProvider($provider);
 
-            $cloudResizer->setFilter($info['name'], $filter);
+            $cloudResizer->setFilter($key, $filter);
         }
+    }
+
+    public function getAlias() {
+        return 'crowdreactive_cloudresizer';
     }
 }

@@ -31,7 +31,8 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('type')->cannotBeEmpty()->end()
                         // a service name
                         ->scalarNode('provider')->cannotBeEmpty()->end()
-                        ->arrayNode('parameters')->end()
+                        ->variableNode('parameters')
+                        ->end()
                     ->end()
                 ->end()
             ->end();
