@@ -56,7 +56,6 @@ services:
 crowdreactive_cloudresizerbundle:
   filters:
     background_thumb:
-      type: CrowdReactive\CloudResizerBundle\CloudResizer\Filter\RelativeHeight
       provider: @cloudresizer.provider.cloudimage
       parameters:
         height: 50
