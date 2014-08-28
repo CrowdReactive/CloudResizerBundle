@@ -13,7 +13,6 @@
         }
     ],
     "license": "MIT",
-    "copyright": "Crowd Reactive Limited",
     "autoload": {
         "psr-4": {
             "CrowdReactive\\CloudResizerBundle\\": ""

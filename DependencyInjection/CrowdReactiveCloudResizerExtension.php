@@ -2,7 +2,6 @@
 
 namespace CrowdReactive\CloudResizerBundle\DependencyInjection;
 
-use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
 use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
 use CrowdReactive\CloudResizerBundle\Services\CloudResizer;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
