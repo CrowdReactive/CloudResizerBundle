@@ -40,7 +40,8 @@ class CrowdReactiveCloudResizerExtension extends Extension
         }
     }
 
-    public function getAlias() {
+    public function getAlias()
+    {
         return 'crowdreactive_cloudresizer';
     }
 }

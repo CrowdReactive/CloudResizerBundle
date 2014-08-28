@@ -35,7 +35,7 @@ class Filter implements FilterInterface
     }
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return mixed
      */
     public function getParameter($name)
@@ -55,7 +55,7 @@ class Filter implements FilterInterface
     }
 
     /**
-     * @param string $name
+     * @param string      $name
      * @param array|mixed $value If value is an array, it will be passed to the setter as arguments
      */
     public function setParameter($name, $value)
@@ -75,7 +75,7 @@ class Filter implements FilterInterface
     /**
      * Call a setter, or set a property
      * @param string $property
-     * @param mixed $value If value is an array, it will be passed to the setter as arguments
+     * @param mixed  $value    If value is an array, it will be passed to the setter as arguments
      *
      * Setters should look like "setPropertyName" if the property is "propertyName"
      */
@@ -86,7 +86,7 @@ class Filter implements FilterInterface
 
     /**
      * Get a property
-     * @param string $property
+     * @param  string $property
      * @return mixed
      */
     public function __get($property)

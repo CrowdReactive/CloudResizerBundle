@@ -6,9 +6,10 @@ use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
 use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
 use CrowdReactive\CloudResizerBundle\Services\CloudResizer;
 
-class CloudResizerTest extends \PHPUnit_Framework_TestCase {
-
-    public function testBuild() {
+class CloudResizerTest extends \PHPUnit_Framework_TestCase
+{
+    public function testBuild()
+    {
         // Stub data
         $url = 'https://www.google.co.uk/images/srpr/logo11w.png';
         $filterName = 'logo_small';
@@ -17,16 +18,16 @@ class CloudResizerTest extends \PHPUnit_Framework_TestCase {
         $filter = $this->getMockFilter();
 
         $filter->expects($this->once())->method('getProvider')->willReturn($provider);
-        $provider->expects($this->once())->method('build')->with($filter, $url)->willReturn('//example.com/' . $url);
+        $provider->expects($this->once())->method('build')->with($filter, $url)->willReturn('//example.com/'.$url);
 
-        $service = new CloudResizer;
+        $service = new CloudResizer();
         $service->setFilter($filterName, $filter);
-        $this->assertEquals('//example.com/' . $url, $service->build($url, $filterName));
+        $this->assertEquals('//example.com/'.$url, $service->build($url, $filterName));
     }
 
     public function testFilterSetter()
     {
-        $service = new CloudResizer;
+        $service = new CloudResizer();
         $filter = $this->getMockFilter();
 
         $service->setFilter('thumbnail', $filter);
@@ -48,4 +49,4 @@ class CloudResizerTest extends \PHPUnit_Framework_TestCase {
     {
         return $this->getMock('CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface');
     }
-} 
+}

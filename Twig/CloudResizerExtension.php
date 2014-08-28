@@ -8,24 +8,25 @@
 
 namespace CrowdReactive\CloudResizerBundle\Twig;
 
-
 use CrowdReactive\CloudResizerBundle\Services\CloudResizer;
 
-class CloudResizerExtension extends \Twig_Extension {
-
+class CloudResizerExtension extends \Twig_Extension
+{
     private $cloudResizerService;
 
     /**
      * @param CloudResizer $imageFilter
      */
-    public function __construct(CloudResizer $imageFilter) {
+    public function __construct(CloudResizer $imageFilter)
+    {
         $this->cloudResizerService = $imageFilter;
     }
 
     /**
      * @return array
      */
-    public function getFilters() {
+    public function getFilters()
+    {
         return array(
             new \Twig_SimpleFilter('cloud_resizer', array($this, 'resize'))
         );
@@ -34,10 +35,11 @@ class CloudResizerExtension extends \Twig_Extension {
     /**
      * @param $url
      * @param $name
-     * @param array $options
+     * @param  array $options
      * @return mixed
      */
-    public function resize($url, $name, array $options = []) {
+    public function resize($url, $name, array $options = [])
+    {
         return $this->cloudResizerService->build($url, $name, $options);
     }
 

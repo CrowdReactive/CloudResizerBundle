@@ -15,20 +15,23 @@ class CrowdReactiveCloudResizerExtensionTest extends \PHPUnit_Framework_TestCase
     /** @var ContainerBuilder */
     private $container;
 
-    public function setUp() {
+    public function setUp()
+    {
         $this->extension = new CrowdReactiveCloudResizerExtension();
 
         $this->container = new ContainerBuilder();
         $this->container->registerExtension($this->extension);
     }
 
-    private function loadConfiguration(ContainerBuilder $container) {
+    private function loadConfiguration(ContainerBuilder $container)
+    {
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('config.yml');
     }
 
-    public function testGetConfigWithDefaultValues() {
+    public function testGetConfigWithDefaultValues()
+    {
         $this->loadConfiguration($this->container);
         $this->container->compile();
     }
-} 
+}

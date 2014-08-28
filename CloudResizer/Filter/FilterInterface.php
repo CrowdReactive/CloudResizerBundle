@@ -12,20 +12,20 @@ interface FilterInterface
     public function getParameters();
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return mixed
      */
     public function getParameter($name);
 
     /**
-     * @param array $parameters
+     * @param  array $parameters
      * @return mixed
      */
     public function setParameters(array $parameters);
 
     /**
-     * @param string $name
-     * @param mixed $value
+     * @param  string $name
+     * @param  mixed  $value
      * @return mixed
      */
     public function setParameter($name, $value);

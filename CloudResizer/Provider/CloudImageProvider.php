@@ -31,7 +31,7 @@ class CloudImageProvider extends Provider implements ProviderInterface
 
         // Parameters are expressed in the URL as key/value
         ksort($params);
-        $query = array_map(function($key, $value) {
+        $query = array_map(function ($key, $value) {
             return "$key$value";
         }, array_keys($params), $params);
 
@@ -42,8 +42,8 @@ class CloudImageProvider extends Provider implements ProviderInterface
             $firstVal,
             implode(".", $query)
             ), "/")
-        . "/"
-        . $url;
+        ."/"
+        .$url;
     }
 
     public function getFilterInstance()
