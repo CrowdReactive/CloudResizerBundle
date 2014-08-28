@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('crowdreactive_cloudresizer');
+        $rootNode = $treeBuilder->root('crowd_reactive_cloud_resizer');
 
         $rootNode->children()
             // array of services

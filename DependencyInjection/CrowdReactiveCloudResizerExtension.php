@@ -27,7 +27,7 @@ class CrowdReactiveCloudResizerExtension extends Extension
          */
 
         /** @var CloudResizer $cloudResizer */
-        $cloudResizer = $container->get('crowdreactive_cloudresizer.service');
+        $cloudResizer = $container->get('crowd_reactive_cloud_resizer.service');
 
         foreach ($config['filters'] as $name => $info) {
             /** @var ProviderInterface $provider */
@@ -42,6 +42,6 @@ class CrowdReactiveCloudResizerExtension extends Extension
 
     public function getAlias()
     {
-        return 'crowdreactive_cloudresizer';
+        return 'crowd_reactive_cloud_resizer';
     }
 }

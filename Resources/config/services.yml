@@ -1,15 +1,15 @@
 parameters:
-    crowdreactive_cloudresizer.service.class: CrowdReactive\CloudResizerBundle\Services\CloudResizer
-    crowdreactive_cloudresizer.twig_extension.class: CrowdReactive\CloudResizerBundle\Twig\CloudResizerExtension
-    crowdreactive_cloudresizer.provider.cloudimage.class: CrowdReactive\CloudResizerBundle\CloudResizer\Provider\CloudImage
+    crowd_reactive_cloud_resizer.service.class: CrowdReactive\CloudResizerBundle\Services\CloudResizer
+    crowd_reactive_cloud_resizer.twig_extension.class: CrowdReactive\CloudResizerBundle\Twig\CloudResizerExtension
+    crowd_reactive_cloud_resizer.provider.cloudimage.class: CrowdReactive\CloudResizerBundle\CloudResizer\Provider\CloudImage
 
 services:
-    crowdreactive_cloudresizer.service:
-        class: %crowdreactive_cloudresizer.service.class%
+    crowd_reactive_cloud_resizer.service:
+        class: %crowd_reactive_cloud_resizer.service.class%
         arguments: []
 
-    crowdreactive_cloudresizer.twig_extension:
-        class: %crowdreactive_cloudresizer.twig_extension.class%
-        arguments: [ @crowdreactive_cloudresizer.service ]
+    crowd_reactive_cloud_resizer.twig_extension:
+        class: %crowd_reactive_cloud_resizer.twig_extension.class%
+        arguments: [ @crowd_reactive_cloud_resizer.service ]
         tags:
             - { name: twig.extension }
