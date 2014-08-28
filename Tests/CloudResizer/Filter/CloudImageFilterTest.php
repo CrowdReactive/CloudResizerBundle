@@ -22,6 +22,12 @@ class CloudImageFilterTest extends \PHPUnit_Framework_TestCase
         $this->filter = new CloudImageFilter($this->cloudImage);
     }
 
+    public function testNoTransformSet()
+    {
+        $this->setExpectedException('BadMethodCallException', 'Cannot build URL without at least one filter');
+        $this->cloudImage->build($this->filter, $this->getUrl());
+    }
+
     public function testHeight()
     {
         $this->filter->setHeight(20);

@@ -17,6 +17,10 @@ class CloudImageFilter extends Filter implements FilterInterface
 
     public function getParameters()
     {
+        if (is_null($this->transformName)) {
+            throw new \BadMethodCallException('Cannot build URL without at least one filter');
+        }
+
         return [$this->transformName => $this->transformValue] + parent::getParameters();
     }
 
