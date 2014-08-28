@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CrowdReactive\CloudResizerBundle\Tests\CloudResizer\CloudImage;
+namespace CrowdReactive\CloudResizerBundle\Tests\CloudResizer\Filter;
 
 use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\CloudImageFilter;
 use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\CloudImageProvider;
