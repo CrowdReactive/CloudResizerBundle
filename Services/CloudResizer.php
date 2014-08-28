@@ -2,11 +2,11 @@
 
 namespace CrowdReactive\CloudResizerBundle\Services;
 
-use CrowdReactive\CloudResizerBundle\CloudResizer\Filter;
+use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
 
 class CloudResizer {
 
-    /** @var Filter[] */
+    /** @var FilterInterface[] */
     protected $filters;
 
     public function __construct() {
@@ -16,16 +16,16 @@ class CloudResizer {
     /**
      * Set a filter by name
      * @param string $name
-     * @param Filter $filter
+     * @param FilterInterface $filter
      */
-    public function setFilter($name, Filter $filter) {
+    public function setFilter($name, FilterInterface $filter) {
         $this->filters[$name] = $filter;
     }
 
     /**
      * Get a filter by name
      * @param string $name
-     * @return Filter
+     * @return FilterInterface
      */
     public function getFilter($name) {
         return $this->filters[$name];
@@ -35,13 +35,11 @@ class CloudResizer {
      * Build a filter URL
      * @param string $url Absolute URL of image to filter
      * @param string $name Filter name
-     * @param array|null $options Override options for the filter
      * @return string URL to filter service
      */
-    public function build($url, $name, array $options = []) {
+    public function build($url, $name) {
         $filter = $this->filters[$name];
-        $filter->setParameters(array_merge($filter->getParameters(), $options));
-        return $filter->getProvider()->build($filter->getParameters(), $url);
+        return $filter->getProvider()->build($filter, $url);
     }
 
 } 

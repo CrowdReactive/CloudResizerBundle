@@ -1,0 +1,12 @@
+services:
+  cloudresizer_cloudimage:
+    class: CrowdReactive\CloudResizerBundle\CloudResizer\Provider\CloudImageProvider
+    arguments: ["token"]
+
+crowdreactive_cloudresizer:
+  filters:
+    background_thumb:
+      provider: cloudresizer_cloudimage
+      parameters:
+        height: 50
+        quality: 50

@@ -27,12 +27,10 @@ class Configuration implements ConfigurationInterface
                 ->prototype('array')
                     ->children()
                         ->scalarNode('name')->cannotBeEmpty()->end()
-                        // a fqcn
-                        ->scalarNode('type')->cannotBeEmpty()->end()
                         // a service name
                         ->scalarNode('provider')->cannotBeEmpty()->end()
-                        ->variableNode('parameters')
-                        ->end()
+                        // filter parameters
+                        ->variableNode('parameters')->end()
                     ->end()
                 ->end()
             ->end();

@@ -5,6 +5,7 @@
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/619824ac-1647-4852-a371-37d1e30e5202/mini.png)](https://insight.sensiolabs.com/projects/619824ac-1647-4852-a371-37d1e30e5202)
 [![Build Status](http://img.shields.io/travis/CrowdReactive/CloudResizerBundle/master.svg)](https://travis-ci.org/CrowdReactive/CloudResizerBundle)
 [![Scrutinizer](http://img.shields.io/scrutinizer/g/CrowdReactive/CloudResizerBundle.svg)](https://scrutinizer-ci.com/g/CrowdReactive/CloudResizerBundle)
+[![Tasks ready](https://badge.waffle.io/CrowdReactive/CloudResizerBundle.png?label=ready&title=Ready)](https://waffle.io/CrowdReactive/CloudResizerBundle)
 
 Provides a wrapper around external image manipulation services. Currently supporting:
 
@@ -23,7 +24,7 @@ $resizer = new CloudResizerBundle\Services\CloudResizer;
 $cloudImage = new CloudResizerBundle\Provider\CloudImage(CLOUDIMAGE_TOKEN);
 
 // Create filters for different purposes
-$backgroundThumbnail = new CloudResizerBundle\CloudResizer\Filter($cloudImage, ['height' => 200]);
+$backgroundThumbnail = new CloudResizerBundle\CloudResizer\CloudImage\CloudImageFilter($cloudImage, ['height' => 200]);
 $resizer->setFilter('background_thumb', $backgroundThumbnail);
 
 $resizer->build('https://s3.amazonaws.com/.../uploads/background-123.png', 'background_thumb');

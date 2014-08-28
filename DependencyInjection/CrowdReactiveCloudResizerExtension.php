@@ -30,23 +30,14 @@ class CrowdReactiveCloudResizerExtension extends Extension
         /** @var CloudResizer $cloudResizer */
         $cloudResizer = $container->get('crowdreactive_cloudresizer.service');
 
-        foreach ($config['filters'] as $key => $info) {
-            /** @todo Lazy load */
-            if (!class_exists($info['type']) || !is_subclass_of($info['type'], 'CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface')) {
-                throw new \Exception('Filter must implement FilterInterface');
-            }
-
-            /** @var FilterInterface $filter */
-            $filter = new $info['type'];
-            $filter->setParameters($info['parameters']);
-
-            if ($info['provider'][0] == '@')
-                $info['provider'] = substr($info['provider'], 1);
+        foreach ($config['filters'] as $name => $info) {
             /** @var ProviderInterface $provider */
             $provider = $container->get($info['provider']);
-            $filter->setProvider($provider);
 
-            $cloudResizer->setFilter($key, $filter);
+            $filter = $provider->getFilterInstance();
+            $filter->setParameters($info['parameters']);
+
+            $cloudResizer->setFilter($name, $filter);
         }
     }
 
