@@ -1,7 +1,0 @@
-crowdreactive_cloudresizer:
-  filters:
-    avatar:
-      type: CrowdReactive\CloudResizerBundle\CloudResizer\Filter\RelativeHeight
-      provider: @crowdreactive_cloudresizer.provider.cloudimage
-      parameters:
-        height: 50

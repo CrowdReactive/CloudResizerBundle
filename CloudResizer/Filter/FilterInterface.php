@@ -6,12 +6,32 @@ use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
 
 interface FilterInterface
 {
-    public function setParameters(array $parameters);
+    /**
+     * @return array
+     */
     public function getParameters();
 
-    public function setProvider(ProviderInterface $provider);
-    /** @return ProviderInterface */
-    public function getProvider();
+    /**
+     * @param string $name
+     * @return mixed
+     */
+    public function getParameter($name);
 
-    public function getName();
+    /**
+     * @param array $parameters
+     * @return mixed
+     */
+    public function setParameters(array $parameters);
+
+    /**
+     * @param string $name
+     * @param mixed $value
+     * @return mixed
+     */
+    public function setParameter($name, $value);
+
+    /**
+     * @return ProviderInterface
+     */
+    public function getProvider();
 }

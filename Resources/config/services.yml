@@ -13,7 +13,3 @@ services:
         arguments: [ @crowdreactive_cloudresizer.service ]
         tags:
             - { name: twig.extension }
-
-    crowdreactive_cloudresizer.provider.cloudimage:
-        class: %crowdreactive_cloudresizer.provider.cloudimage.class%
-        arguments: [ '' ]
