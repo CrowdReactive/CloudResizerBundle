@@ -4,7 +4,7 @@ namespace CrowdReactive\CloudResizerBundle\CloudResizer\Filter;
 
 use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
 
-class Filter
+class Filter implements FilterInterface
 {
     /** @var ProviderInterface */
     protected $provider;

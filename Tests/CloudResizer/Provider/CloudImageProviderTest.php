@@ -14,6 +14,10 @@ class CloudImageProviderTest extends \PHPUnit_Framework_TestCase
         $this->provider = new CloudImageProvider('123abc');
     }
 
+    public function testDefaultFilter()
+    {
+        $this->assertInstanceOf('CrowdReactive\CloudResizerBundle\CloudResizer\Filter\CloudImageFilter', $this->provider->getFilterInstance());
+    }
 
     public function testToken()
     {

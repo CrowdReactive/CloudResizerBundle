@@ -2,6 +2,7 @@
 
 namespace CrowdReactive\CloudResizerBundle\CloudResizer\Provider;
 
+use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\CloudImageFilter;
 use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
 
 class CloudImageProvider extends Provider implements ProviderInterface
