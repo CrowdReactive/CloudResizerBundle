@@ -1,14 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Roman Schejbal
- * Date: 19/08/2014
- * Time: 16:43
- */
 
 namespace CrowdReactive\CloudResizerBundle\Twig;
 
-use CrowdReactive\CloudResizerBundle\Services\CloudResizer;
+use CrowdReactive\CloudResizerBundle\CloudResizer\CloudResizer;
 
 class CloudResizerExtension extends \Twig_Extension
 {

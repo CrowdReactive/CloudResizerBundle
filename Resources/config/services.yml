@@ -1,7 +1,7 @@
 parameters:
-    crowd_reactive_cloud_resizer.service.class: CrowdReactive\CloudResizerBundle\Services\CloudResizer
+    crowd_reactive_cloud_resizer.service.class: CrowdReactive\CloudResizerBundle\CloudResizer\CloudResizer
     crowd_reactive_cloud_resizer.twig_extension.class: CrowdReactive\CloudResizerBundle\Twig\CloudResizerExtension
-    crowd_reactive_cloud_resizer.provider.cloudimage.class: CrowdReactive\CloudResizerBundle\CloudResizer\Provider\CloudImage
+    crowd_reactive_cloud_resizer.provider.cloudimage.class: CrowdReactive\CloudResizerBundle\CloudResizer\Provider\CloudImageProvider
 
 services:
     crowd_reactive_cloud_resizer.service:

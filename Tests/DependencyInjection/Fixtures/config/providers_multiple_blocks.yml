@@ -1,0 +1,14 @@
+crowd_reactive_cloud_resizer:
+  providers:
+    # Multiple providers configured for a single provider
+    my_provider:
+      cloudimage:
+        token: 123456
+      imgix:
+         token: 123556
+  filters:
+    background_thumb:
+      provider: my_cloudimage
+      parameters:
+        height: 50
+        quality: 50

@@ -1,0 +1,11 @@
+crowd_reactive_cloud_resizer:
+  providers:
+    my_cloudimage:
+      cloudimage:
+        token: abc123
+  filters:
+    background_thumb:
+      provider: my_cloudimage
+      parameters:
+        height: 50
+        quality: 50

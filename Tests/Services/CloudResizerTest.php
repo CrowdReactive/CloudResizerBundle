@@ -4,7 +4,7 @@ namespace CrowdReactive\CloudResizerBundle\Tests\Services;
 
 use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
 use CrowdReactive\CloudResizerBundle\CloudResizer\Provider\ProviderInterface;
-use CrowdReactive\CloudResizerBundle\Services\CloudResizer;
+use CrowdReactive\CloudResizerBundle\CloudResizer\CloudResizer;
 
 class CloudResizerTest extends \PHPUnit_Framework_TestCase
 {

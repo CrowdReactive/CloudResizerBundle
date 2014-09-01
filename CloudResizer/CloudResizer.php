@@ -1,6 +1,6 @@
 <?php
 
-namespace CrowdReactive\CloudResizerBundle\Services;
+namespace CrowdReactive\CloudResizerBundle\CloudResizer;
 
 use CrowdReactive\CloudResizerBundle\CloudResizer\Filter\FilterInterface;
 

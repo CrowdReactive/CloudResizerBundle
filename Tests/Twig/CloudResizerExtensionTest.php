@@ -14,7 +14,7 @@ class CloudResizerExtensionTest extends \PHPUnit_Framework_TestCase
 {
     public function testFilter()
     {
-        $service = $this->getMock('\CrowdReactive\CloudResizerBundle\Services\CloudResizer');
+        $service = $this->getMock('\CrowdReactive\CloudResizerBundle\CloudResizer\CloudResizer');
         $service->expects($this->once())->method('build')->with('url', 'logo')->willReturn('url');
 
         $extension = new CloudResizerExtension($service);
