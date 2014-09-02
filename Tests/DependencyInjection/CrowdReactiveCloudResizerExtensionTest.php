@@ -79,10 +79,4 @@ class CrowdReactiveCloudResizerExtensionTest extends \PHPUnit_Framework_TestCase
         $service = $container->get('crowd_reactive_cloud_resizer.service');
         $this->assertInstanceOf('CrowdReactive\CloudResizerBundle\CloudResizer\Filter\CloudImageFilter', $service->getFilter('background_thumb'));
     }
-
-    public function testGetConfigWithDefaultValues()
-    {
-        $this->loadConfiguration($this->container);
-        $this->container->compile();
-    }
 }
