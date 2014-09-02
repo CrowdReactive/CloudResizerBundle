@@ -44,6 +44,7 @@ class CrowdReactiveCloudResizerExtension extends Extension
                 }
             }
         }
+        $container->setParameter($this->getAlias().'.providers', array_keys($this->providers));
 
         $manager = $container->getDefinition('crowd_reactive_cloud_resizer.service');
 
@@ -51,13 +52,16 @@ class CrowdReactiveCloudResizerExtension extends Extension
          * Create a service definition for each filter, getting the Filter instance from the Provider service
          * and adding to the manager service
          */
+        $filters = [];
         foreach ($config['filters'] as $name => $info) {
             $id = $this->getDefinitionId('filter', $name);
             $filter = $this->getFilterDefinition($info);
             $container->setDefinition($id, $filter);
 
             $manager->addMethodCall('setFilter', [$name, $filter]);
+            $filters[] = $name;
         }
+        $container->setParameter($this->getAlias().'.filters', $filters);
     }
 
     /**
