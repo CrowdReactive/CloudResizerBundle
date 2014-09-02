@@ -32,39 +32,46 @@ class CloudImageFilterTest extends \PHPUnit_Framework_TestCase
     {
         $this->filter->setHeight(20);
         $this->assertEquals('//token.cloudimage.io/s/height/20/'.$this->getUrl(), $this->cloudImage->build($this->filter, $this->getUrl()));
+        $this->assertEquals(20, $this->filter->getParameter('height'));
     }
 
     public function testWidth()
     {
         $this->filter->setWidth(10);
         $this->assertEquals('//token.cloudimage.io/s/width/10/'.$this->getUrl(), $this->cloudImage->build($this->filter, $this->getUrl()));
+        $this->assertEquals(10, $this->filter->getParameter('width'));
     }
 
     public function testCrop()
     {
         $this->filter->setCrop(50, 100);
         $this->assertEquals('//token.cloudimage.io/s/crop/50x100/'.$this->getUrl(), $this->cloudImage->build($this->filter, $this->getUrl()));
+        $this->assertEquals('50x100', $this->filter->getParameter('crop'));
 
         $this->filter->crop = [75, 20];
         $this->assertEquals('//token.cloudimage.io/s/crop/75x20/'.$this->getUrl(), $this->cloudImage->build($this->filter, $this->getUrl()));
+        $this->assertEquals('75x20', $this->filter->getParameter('crop'));
     }
 
     public function testResizeInBox()
     {
         $this->filter->setResizeInBox(100, 100);
         $this->assertEquals('//token.cloudimage.io/s/resizeinbox/100x100/'.$this->getUrl(), $this->cloudImage->build($this->filter, $this->getUrl()));
+        $this->assertEquals('100x100', $this->filter->getParameter('resizeinbox'));
     }
 
     public function testResizeNoPadding()
     {
         $this->filter->setResizeNoPadding(25, 60);
         $this->assertEquals('//token.cloudimage.io/s/resizenp/25x60/'.$this->getUrl(), $this->cloudImage->build($this->filter, $this->getUrl()));
+        $this->assertEquals('25x60', $this->filter->getParameter('resizenp'));
     }
 
     public function testCdn()
     {
         $this->filter->useCdn();
         $this->assertEquals('//token.cloudimage.io/s/cdn/x/'.$this->getUrl(), $this->cloudImage->build($this->filter, $this->getUrl()));
+        $this->assertEquals('x', $this->filter->getParameter('cdn'));
     }
 
     public function testReplacements()

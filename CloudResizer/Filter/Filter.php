@@ -40,7 +40,7 @@ class Filter implements FilterInterface
      */
     public function getParameter($name)
     {
-        return $this->parameters[$name];
+        return $this->getParameters()[$name];
     }
 
     /**
