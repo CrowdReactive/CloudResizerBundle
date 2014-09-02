@@ -40,7 +40,16 @@ class Filter implements FilterInterface
      */
     public function getParameter($name)
     {
-        return $this->getParameters()[$name];
+        return $this->hasParameter($name) ? $this->getParameters()[$name] : null;
+    }
+
+    /**
+     * @param  string $name
+     * @return bool
+     */
+    public function hasParameter($name)
+    {
+        return array_key_exists($name, $this->getParameters());
     }
 
     /**
