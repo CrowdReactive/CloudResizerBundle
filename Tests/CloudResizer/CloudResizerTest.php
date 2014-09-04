@@ -34,6 +34,15 @@ class CloudResizerTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($filter, $service->getFilter('thumbnail'));
     }
 
+    public function testDisabledPassthru()
+    {
+        $service = new CloudResizer();
+        $service->setEnabled(false);
+
+        $service->setFilter('thumbnail', $this->getMockFilter());
+        $this->assertEquals('https://www.google.co.uk/images/srpr/logo11w.png', $service->build('https://www.google.co.uk/images/srpr/logo11w.png', 'thumbnail'));
+    }
+
     /**
      * @return FilterInterface|\PHPUnit_Framework_MockObject_MockObject
      */

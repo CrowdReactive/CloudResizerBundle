@@ -22,6 +22,7 @@ class Configuration implements ConfigurationInterface
         $rootNode = $builder->root('crowd_reactive_cloud_resizer');
 
         $rootNode->children()
+                ->booleanNode('enabled')->defaultTrue()->end()
                 ->arrayNode('providers')
                 ->useAttributeAsKey('name')
                 ->prototype('array')

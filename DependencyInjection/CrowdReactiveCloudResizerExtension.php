@@ -47,6 +47,7 @@ class CrowdReactiveCloudResizerExtension extends Extension
         $container->setParameter($this->getAlias().'.providers', array_keys($this->providers));
 
         $manager = $container->getDefinition('crowd_reactive_cloud_resizer.service');
+        $manager->addMethodCall('setEnabled', [$config['enabled']]);
 
         /**
          * Create a service definition for each filter, getting the Filter instance from the Provider service

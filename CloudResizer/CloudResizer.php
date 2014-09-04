@@ -9,9 +9,13 @@ class CloudResizer
     /** @var FilterInterface[] */
     protected $filters;
 
+    /** @var bool Allows for disabling URLs in development */
+    protected $enabled;
+
     public function __construct()
     {
         $this->filters = [];
+        $this->enabled = true;
     }
 
     /**
@@ -42,9 +46,28 @@ class CloudResizer
      */
     public function build($url, $name)
     {
-        $filter = $this->filters[$name];
+        if ($this->enabled) {
+            $filter = $this->filters[$name];
 
-        return $filter->getProvider()->build($filter, $url);
+            return $filter->getProvider()->build($filter, $url);
+        }
+
+        return $url;
     }
 
+    /**
+     * @return boolean
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
+
+    /**
+     * @param boolean $enabled
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    }
 }
